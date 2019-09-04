@@ -43,8 +43,8 @@ addClientToBaculaDir() {
 	echo "Adding client to bacula-dir.conf..."
 	SERVERNAME=$1
 	FILECONF="@/etc/bacula/conf.d/client$SERVERNAME.conf"
-	echo "${ARQCONF}"
-	sed -i "s,at beginning),at beginning)\n${ARQCONF},g" /etc/bacula/bacula-dir.conf
+	echo "${FILECONF}"
+	sed -i "s,at beginning),at beginning)\n${FILECONF},g" /etc/bacula/bacula-dir.conf
 }
 
 cd /etc/bacula/conf.d/
