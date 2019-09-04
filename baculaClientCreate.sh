@@ -42,7 +42,7 @@ backupBaculaDir() {
 addClientToBaculaDir() {
 	echo "Adding client to bacula-dir.conf..."
 	SERVERNAME=$1
-	FILECONF="@/etc/bacula/conf.d/client$SERVERNAME.conf"
+	FILECONF="@/etc/bacula/conf.d/client${SERVERNAME}.conf"
 	echo "${FILECONF}"
 	sed -i "s,at beginning),at beginning)\n${FILECONF},g" /etc/bacula/bacula-dir.conf
 }
@@ -56,7 +56,7 @@ echo -n "Type the Script path: "; read SCRIPTPATH
 
 createConfFile $IP $SERVERNAME $PASSWORD $SCRIPTPATH
 backupBaculaDir
-addClientToBaculaDir $SERVENAME
+addClientToBaculaDir $SERVERNAME
 
 /etc/init.d/bacula restart
 
